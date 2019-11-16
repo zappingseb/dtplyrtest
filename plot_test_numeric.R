@@ -14,6 +14,6 @@ plot_test_numeric <- function(n = 100, iterations = 100) {
   ggplot2::ggplot(data.frame(plot_data), ggplot2::aes(x = call, y = time)) +
     ggplot2::geom_boxplot() +
     ggplot2::coord_flip() +
-    ggplot2::ggtitle(paste("Dataset has", n, "rows"))
+    ggplot2::ggtitle(paste("Dataset has", n, "rows", "| OS:", Sys.info()["sysname"]))
   
 }
