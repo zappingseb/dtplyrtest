@@ -11,7 +11,9 @@ plot_test_numeric(n = 100, iterations = 1000)
 
 plot_test_numeric(n = 10 ^ 5, iterations = 1000)
 
-plot_test_numeric(n = 10 ^ 7, iterations = 1000)
+plot_test_numeric(n = 10 ^ 6, iterations = 1000)
+
+plot_test_numeric(n = 10 ^ 7, iterations = 500)
 
 plot_test_numeric(n = 100, iterations = 1000, fun = test_dataset_char)
 
