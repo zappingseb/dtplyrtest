@@ -1,8 +1,8 @@
-plot_test_numeric <- function(n = 100, iterations = 100) {
+plot_test_numeric <- function(n = 100, iterations = 100, fun = test_dataset_numeric) {
   
   my_data <- data_set_creation(n)
   
-  x <- test_dataset_numeric(my_data, iterations = iterations)
+  x <- fun(my_data, iterations = iterations)
   
   plot_data <- data.frame(
     call = matrix(vapply(x$expression %>% as.character(), function(x) rep(x, iterations), character(iterations)), ncol = 1),
