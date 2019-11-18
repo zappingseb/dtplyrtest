@@ -45,7 +45,7 @@ for (n in c(100, 1000, 10E3, 10E4, 10E5, 10E6)){
                          )
 }
 data_gg <- plot_data_char %>% group_by(call, n) %>%
-  summarise(mean = mean(time), ymax = quantile(time, probs = c(0.75)), ymin = quantile(time, probs=(0.25)))
+  summarise(mean = median(time), ymax = quantile(time, probs = c(0.75)), ymin = quantile(time, probs=(0.25)))
 data_gg$call <- factor(as.character(data_gg$call), c("mutate_char_dt(DT)",
                                                "data.table::as.data.table(ds) %>% mutate_char_dt()",
                                                "ds %>% mutate_char()",
@@ -56,4 +56,5 @@ ggplot2::ggplot(data_gg, ggplot2::aes(x=n, y=mean, colour=call)) +
   ggplot2::geom_point() +
   ggplot2::xlab("Dataset size") +
   ggplot2::scale_y_continuous(trans = "log10") +
-  ggplot2::scale_x_continuous(trans = "log10")
+  ggplot2::scale_x_continuous(trans = "log10") +
+  ggplot2::theme_bw()
