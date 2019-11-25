@@ -17,7 +17,6 @@ plot_data_num <- data.frame(
 )
 
 dataset_sizes <- c(100, 1000, 10E3, 10E4, 10E5, 10E6)
-dataset_sizes <- c(100, 1000)
 for (n in dataset_sizes){
   print(n)
   plot_data_num <- rbind(plot_data_num,
@@ -35,6 +34,8 @@ ggplot2::ggplot(data_gg, ggplot2::aes(x=n, y=mean, colour=call)) +
   ggplot2::xlab("Dataset size") +
   ggplot2::scale_y_continuous(trans = "log10") +
   ggplot2::scale_x_continuous(trans = "log10")
+
+ggplot2::ggsave("images/num_overall_log_2.png")
 
 plot_data_char <- data.frame(
   call = c(),
@@ -61,3 +62,4 @@ ggplot2::ggplot(data_gg, ggplot2::aes(x=n, y=mean, colour=call)) +
   ggplot2::scale_y_continuous(trans = "log10") +
   ggplot2::scale_x_continuous(trans = "log10") +
   ggplot2::theme_bw()
+ggplot2::ggsave("images/char_overall_log_2.png")
