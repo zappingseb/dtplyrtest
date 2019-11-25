@@ -18,7 +18,6 @@ test_dataset_numeric <- function(ds, iterations = 100){
   return(bench::mark(
     ds %>% calc_check(),
     ds_lazy %>% calc_check() %>% as_tibble(),
-    data.table::as.data.table(ds) %>% calc_check_dt(),
     calc_check_dt(DT),
     check = FALSE,
     iterations = iterations
