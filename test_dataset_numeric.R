@@ -10,7 +10,9 @@ test_dataset_numeric <- function(ds, iterations = 100){
   }
   
   calc_check_dt <- function(DT_int) {
-    DT_int[, .(.N, mean(numeric_int[!is.na(missing)])), by = letter]
+    DT_int[!is.na(missing),
+           .(n = .N, delay = mean(numeric_int)),
+           letter]
   }
   
   DT <- data.table::as.data.table(ds)

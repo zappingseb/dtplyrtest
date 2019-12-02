@@ -10,7 +10,8 @@ test_dataset_char <- function(ds, iterations = 100){
   }
   
   mutate_char_dt <- function(DT_int) {
-    DT[letter == "A", word_new:=paste0(word, numeric_int)][letter == "A", "word_new"]
+    DT[letter == "A",
+       .(word_new = paste0(word, numeric_int))]
   }
   
   DT <- data.table::as.data.table(ds)
